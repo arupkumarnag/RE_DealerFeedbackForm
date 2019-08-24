@@ -4,14 +4,14 @@ from send_mail import send_mail
 
 app = Flask(__name__)
 
-ENV = 'prod'
+ENV = 'prod'            #This has been already deployed, so it is in Production Environment.
 
 if ENV == 'dev':
     app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:89026motoacer@localhost/lexus'
+    app.config['SQLALCHEMY_DATABASE_URI'] = '' #Paste your local postgresql db name and password here.
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tnoupdmetarkmv:b9b107220dcfd5620ea98dce8896d3909a1b1615a1c2150e1382bc57730c8f15@ec2-54-83-201-84.compute-1.amazonaws.com:5432/d4si3kj7pdv8cq'
+    app.config['SQLALCHEMY_DATABASE_URI'] = '' #Paste your heroku config url here.
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -56,6 +56,5 @@ def submit():
 
 
 if __name__== '__main__':
-   # app.debug = True
     app.run()    
     
